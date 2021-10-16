@@ -9,6 +9,4 @@ class OfferSerilizer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'price']
 
     def update(self, instance, validated_data):
-        new_instance = offerService.update(instance, validated_data)
-
-        return new_instance
+        return offerService.update(instance, validated_data)
