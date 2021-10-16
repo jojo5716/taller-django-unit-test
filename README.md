@@ -1,3 +1,3 @@
 # Running test
 
-python -m unittest discover -s taller_unit_test/**/tests
+python manage.py test --pattern="tests_*.py"

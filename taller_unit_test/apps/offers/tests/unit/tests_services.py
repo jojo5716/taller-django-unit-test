@@ -27,3 +27,13 @@ class OfferTestCase(TestCase):
         self.assertEqual(new_offer_obj.name, update_offer_kwargs["name"])
         self.assertEqual(new_offer_obj.description, update_offer_kwargs["description"])
         self.assertEqual(new_offer_obj.price, update_offer_kwargs["price"])
+
+
+    def test_offer_update_returns_same_intance_when_validated_data_is_empty(self):
+        first_offer = offerService.list().first()
+        update_offer_kwargs = {}
+        new_offer_obj = offerService.update(first_offer, update_offer_kwargs)
+
+        self.assertEqual(new_offer_obj.name, "Offer 2")
+        self.assertEqual(new_offer_obj.description, "Offer description 2")
+        self.assertEqual(new_offer_obj.price, 200.0)
