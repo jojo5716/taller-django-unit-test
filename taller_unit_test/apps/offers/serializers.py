@@ -6,4 +6,3 @@ class OfferSerilizer(serializers.ModelSerializer):
     class Meta:
         model = Offer
         fields = ['id', 'name', 'description', 'price']
-    

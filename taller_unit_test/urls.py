@@ -23,6 +23,7 @@ from taller_unit_test.apps.offers.views import OfferView
 router = routers.DefaultRouter()
 router.register(r'offers', OfferView)
 
+
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
