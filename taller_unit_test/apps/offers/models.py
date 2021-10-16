@@ -9,3 +9,6 @@ class Offer(models.Model):
 
     class Meta:
         ordering = ['-price']
+    
+    def __str__(self) -> str:
+        return self.name

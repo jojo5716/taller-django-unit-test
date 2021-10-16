@@ -26,6 +26,7 @@ class OfferView(viewsets.ModelViewSet):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             offer = services.create(serializer.validated_data)
+
             response_status = status.HTTP_201_CREATED
             response_body = OfferSerilizer(offer).data
 

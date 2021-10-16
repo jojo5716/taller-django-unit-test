@@ -1,0 +1,20 @@
+{
+  "name": "taller_unit_test",
+  "version": "1.0.0",
+  "description": "python -m unittest discover -s taller_unit_test/**/tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "./taller_unit_test/scripts/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jojo5716/taller-django-unit-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jojo5716/taller-django-unit-test/issues"
+  },
+  "homepage": "https://github.com/jojo5716/taller-django-unit-test#readme"
+}
