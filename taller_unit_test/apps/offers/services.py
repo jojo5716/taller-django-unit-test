@@ -10,3 +10,11 @@ def create(validated_data):
         description=validated_data["description"],
         price=validated_data["price"] * 2,
     )
+
+def update(instance, validated_data):
+    instance.name = validated_data.get('name', instance.name)
+    instance.description = validated_data.get('description', instance.description)
+    instance.price = validated_data.get('price', instance.price)
+
+    return instance
+
