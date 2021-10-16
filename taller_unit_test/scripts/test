@@ -3,10 +3,8 @@
 # Runs unit tests
 
 # Always set current working directory to the root of the project
-cd "$(dirname "$0")/../../" || exit
+cd "$(dirname "$0")/../" || exit
 
 
-COVERAGE_FILE=.coverage.unit coverage run \
-    # manage.py test --testrunner="taller_unit_test.testconfig.NoDBRunner" $* taller_unit_test
-    manage.py test --pattern="tests_*.py"
+coverage run --branch --source=. ./scripts/run.py $*
 
