@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from taller_unit_test.apps import offers
 
 from taller_unit_test.apps.offers import models 
 from taller_unit_test.apps.offers import services as offerService

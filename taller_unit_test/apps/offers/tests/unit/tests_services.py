@@ -8,7 +8,9 @@ NUMBER_OFFERS_TO_CREATE = 3
 
 class OfferTestCase(TransactionTestCase):
     def setUp(self):
-        create_multiple_offers(NUMBER_OFFERS_TO_CREATE)
+        with patch('taller_unit_test.apps.offers.services.priceService') as mock_price:
+            mock_price.calculate_price.return_value = 200
+            create_multiple_offers(NUMBER_OFFERS_TO_CREATE)
     
     def test_offer_list_returns_3_offers(self):
         offer_list = offerService.list()
@@ -32,8 +34,11 @@ class OfferTestCase(TransactionTestCase):
         self.assertEqual(new_offer_obj.description, update_offer_kwargs["description"])
         self.assertEqual(new_offer_obj.price, new_calculated_price)
 
+    @patch("taller_unit_test.apps.offers.services.priceService")
+    def test_offer_update_returns_same_intance_when_validated_data_is_empty(self, priceServiceMock):
+        new_calculated_price = 20
+        priceServiceMock.calculate_price.return_value = new_calculated_price
 
-    def test_offer_update_returns_same_intance_when_validated_data_is_empty(self):
         first_offer = offerService.list().first()
         update_offer_kwargs = {}
         new_offer_obj = offerService.update(first_offer, update_offer_kwargs)
